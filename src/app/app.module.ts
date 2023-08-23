@@ -1,16 +1,34 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ProductDetailComponent } from '@pages/product-detail/product-detail.component';
+import { CheckoutComponent } from '@pages/checkout/checkout.component';
+import { CategoriesComponent } from '@pages/categories/categories.component';
+
+import { HomeModule } from '@pages/home/home.module';
+import { StoreModule } from '@ngrx/store';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    HomeModule,
+
+    ProductDetailComponent,
+    CheckoutComponent,
+    CategoriesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

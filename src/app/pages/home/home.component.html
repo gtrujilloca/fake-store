@@ -1,0 +1,12 @@
+<p>home works!</p>
+
+<ul *ngFor="let product of products$ | async">
+  <li>
+    <p>
+      <span>{{ product?.id }} - {{ product?.title }}</span>
+      <span>{{ product?.description }}</span>
+      <span>{{ product?.price }}</span>
+    </p>
+
+  </li>
+</ul>
