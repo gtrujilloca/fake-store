@@ -8,7 +8,7 @@ import { formatProductDto, formatProductDtoList } from '../utils/format-helpers'
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = `${environment.baseUrl}/products`;
+  private baseUrl = `${environment.baseUrl}`;
 
   constructor(
     private http: HttpClient

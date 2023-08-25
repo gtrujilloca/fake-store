@@ -13,6 +13,7 @@ import { CategoriesComponent } from '@pages/categories/categories.component';
 
 import { HomeModule } from '@pages/home/home.module';
 import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,10 @@ import { StoreModule } from '@ngrx/store';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    HomeModule,
 
+    HttpClientModule,
+
+    HomeModule,
     ProductDetailComponent,
     CheckoutComponent,
     CategoriesComponent

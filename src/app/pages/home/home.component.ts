@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { ProductsActions, ProductsSelector } from '@store/index';
+import { ProductsActions, ProductsSelectors } from '@store/index';
 
 import { ProductData } from '@shared/interfaces/product';
 
@@ -14,7 +14,7 @@ import { ProductData } from '@shared/interfaces/product';
 
 export class HomeComponent implements OnInit {
 
-  products$: Observable<ProductData[]> = this.store.select(ProductsSelector.products);
+  products$: Observable<ProductData[]> = this.store.select(ProductsSelectors.products);
 
   constructor(private store: Store){}
   ngOnInit(): void {

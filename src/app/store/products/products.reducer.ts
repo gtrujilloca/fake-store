@@ -1,6 +1,6 @@
 import { ActionReducer, ActionReducerMap, createReducer, on } from "@ngrx/store";
 import { ProductData } from "@shared/interfaces/product";
-import { ProductsActions } from "..";
+import { ProductsActions, ProductsApiActions } from "..";
 import { productListMock } from "@mocks/products";
 
 
@@ -14,9 +14,9 @@ const initialState: ProductsState = {
 
 export const productsReducer: ActionReducer<ProductsState> = createReducer(
   initialState,
-  on(ProductsActions.init, (state) => ({
+  on(ProductsApiActions.loadAllProductsSucess, (state, action) => ({
     ...state,
-    products: productListMock
+    products: action.products
   })),
   on(ProductsActions.addProduct, (state, action) => ({
     products: [...state.products, action.product]
